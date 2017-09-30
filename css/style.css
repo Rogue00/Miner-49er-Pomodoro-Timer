@@ -7,6 +7,7 @@ button {
   margin-left: 45%;
   
   
+  
 }
 #reset {
   margin-left: 48%;
@@ -14,4 +15,9 @@ button {
 
 #pause {
   margin-left: 48%;
+}
+#miner {
+	margin-top: 45px;
+	margin-left: 500px;
+	position: absolute;
 }
