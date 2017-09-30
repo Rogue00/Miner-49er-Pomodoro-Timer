@@ -150,6 +150,7 @@ function subtractOneFromBreakTimer() {
 // set and begin break timer...set timer interval..show timer in html
 
 function setBreakTimer() {
+  breakTimer = 5;
   if (breakTimerRunning === false) {
     timer = setInterval(minus1FromBreak, 60000);
 document.getElementById("break").innerHTML= breakTimer;
@@ -162,7 +163,7 @@ document.getElementById("break").innerHTML= breakTimer;
 // subtract from break timer each interval...check when break timer reaches zero..then shut down break timer...allow reset of main session timer
 
 function minus1FromBreak() {
-  if (breakTimer = true) {
+  if (breakTimerRunning = true) {
   breakTimer = breakTimer - 1;
   document.getElementById("break").innerHTML= breakTimer;
  document.getElementById("txt").innerHTML = breakTimer + " Minutes Left!";
@@ -176,7 +177,6 @@ function minus1FromBreak() {
       }
 	  }
   } 
-
 
 
 
