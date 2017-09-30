@@ -13,18 +13,25 @@
 </head>
 
 <body>
+
+<audio id="sound">
+  <source src="http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg" type="audio/ogg">
+</audio>
+<audio id="sound2">
+  <source src="http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/start.ogg" type="audio/ogg">
+</audio>
   
 <div class = "container-fluid" id = "pomoTimer">
 <h1 align= "center">Miner 49er Podomoro Timer</h1>
   <button id= "reset" onclick= resetTimer();>Reset</button>
  
   <p align= "center" id= "notification"></p>
-  <h2 align= "center" id= "txt"></h2>
+  <p align= "center" id= "txt"></p>
   <h2 align= "center" id= "txt1"></h2>
   <br>
   
   <h1 align= "center" id= "counter">25</h1>
-  <h2 align= "center">Minutes Left To Work!</h2>
+  <h2 align= "center" id= "text1">Minutes Left To Work!</h2>
   <br>
   <div class = row id= "controls">
       <div class="col-sm-4">
@@ -42,13 +49,24 @@
   
   </div>
   <br>
-  <h1 align= "center" id= "break">5:00</h1>
-  <h2 align= "center">Break Left</h2>
+  <h1 align= "center" id= "break"></h1>
+  <h2 align= "center" id= "text2"></h2>
+  <br>
+  <div class = row id= "breakControls">
+      <div class="col-sm-4">
+        <button id = "subtract1" onclick= subtractOneFromBreakTimer();>Subtract Minutes</button>
+      </div>
+    <div class="col-sm-4">
+      
+    </div>
+    <div class="col-sm-4">
+      <button id = "add1" onclick= addOneToBreakTimer();>Add Minutes</button>
+    </div>
   <br>
   <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4"></div>
-    <div class="col-sm-4"><img src="http://i68.tinypic.com/swpzrc.jpg" id= "miner" width= "200px"></div>
+    <div class="col-sm-4" id= "miner"><img src="http://i68.tinypic.com/swpzrc.jpg" id= "miner" width= "200px"></div>
    
   </div>
   
