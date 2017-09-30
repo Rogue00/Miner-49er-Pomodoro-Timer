@@ -1,14 +1,17 @@
 var pomoTimer = 25;
 var timerRunning = false;
 var breakTimerRunning = false;
-var breakTimer = 1;
+var breakTimer = 5;
 var x = document.getElementById("sound"); 
 var y = document.getElementById("sound2");
 
-        document.getElementById("subtract1").style.visibility = "hidden"; 
-	    document.getElementById("add1").style.visibility = "hidden"; 
-clearTimer();
+   // hide break timer buttons
 
+document.getElementById("subtract1").style.visibility = "hidden"; 
+	    document.getElementById("add1").style.visibility = "hidden"; 
+
+
+//reset session timer
 function resetTimer() {
   pomoTimer = 25;
     timerRunning = false;
@@ -19,18 +22,24 @@ function resetTimer() {
 		showButtons();
 		
 }
+// hide session timer buttons
 function hideButtons() {
 	document.getElementById("controller").style.visibility = "hidden";   
         document.getElementById("subtract").style.visibility = "hidden"; 
 	    document.getElementById("add").style.visibility = "hidden";    
          document.getElementById("reset").style.visibility = "hidden"; 
 }
+
+// show session timer buttons
 function showButtons() {
 	    document.getElementById("controller").style.visibility = "visible"; 
         document.getElementById("subtract").style.visibility = "visible"; 
 	    document.getElementById("add").style.visibility = "visible";    
          
 }
+
+// toggle to break timer
+
 function switchTimerOff() {
 	document.getElementById("notification").style.visibility = "hidden"; 
             document.getElementById("counter").innerHTML= "";
@@ -39,6 +48,9 @@ function switchTimerOff() {
 			document.getElementById("subtract1").style.visibility = "visible"; 
 	    document.getElementById("add1").style.visibility = "visible"; 
 }
+
+
+// toggle to session timer
 
 function switchTimerOn() {
 	document.getElementById("notification").style.visibility = "visible"; 
@@ -49,7 +61,6 @@ function switchTimerOn() {
 }
 
 function switchBreakTimerOff() {
-	//document.getElementById("text2").style.visibility = "hidden"; 
       document.getElementById("break").innerHTML= "";
 	  document.getElementById("txt").innerHTML= "";
 	  document.getElementById("text2").innerHTML= "";
@@ -58,11 +69,16 @@ function switchBreakTimerOff() {
 	  y.play();
 }
 
+//add 1 to session timer
+
 function addOne() {
   pomoTimer=pomoTimer + 1;
   
   document.getElementById("counter").innerHTML = pomoTimer;
 }
+
+// subtract 1 from session timer
+
 function subtractOne() { 
   if ( pomoTimer > 0) {
   pomoTimer = pomoTimer - 1;
@@ -71,6 +87,8 @@ function subtractOne() {
   document.getElementById("notification").innerHTML = "The Timer Is At Zero!";
   }
 }
+
+// set session timer..set timer interval...start session timer
 
 function setTimer() {
 		 if(timerRunning === false) {
@@ -84,16 +102,7 @@ document.getElementById("counter").innerHTML= pomoTimer;
  
 }
 
-/*function working() {
-  if (timerRunning === false) {
-  document.getElementById("controller").innerHTML= "Reset";
-  timerRunning = true;
-  } else {
-    document.getElementById("controller").innerHTML= "Start";
-    timerRunning = false;
-  }
-}
-*/
+//subtract 1 from session timer according to passed interval(setTimer).. switch to break timer when session timer reaches 0
 
 function minus1() {
   
@@ -108,35 +117,27 @@ function minus1() {
  }
   } 
 
+// clear timer 
 
 function clearTimer() {
   timer = clearInterval();
   }
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  function resetBreakTimer() {
-  breakTimer = 5;
-    breakTimerRunning = false;
-  //clearTimer();
-   // document.getElementById("break").innerHTML = pomoTimer;
-    //document.getElementById("txt").innerHTML = "Press Start To Restart The Timer!";
 
-}
+// Break Timer Functionality Below
+
+
+// add to break timer via button controller
+
 function addOneToBreakTimer() {
 	breakTimer = breakTimer + 1;
   
   document.getElementById("break").innerHTML = breakTimer;
 }
+
+// subract from break timer via button controller
+
 function subtractOneFromBreakTimer() { 
   if ( breakTimer > 0) {
   breakTimer = breakTimer - 1;
@@ -145,6 +146,8 @@ function subtractOneFromBreakTimer() {
   document.getElementById("txt").innerHTML = "The Timer Is At Zero!";
   }
 }
+
+// set and begin break timer...set timer interval..show timer in html
 
 function setBreakTimer() {
   if (breakTimerRunning === false) {
@@ -156,18 +159,10 @@ document.getElementById("break").innerHTML= breakTimer;
   } 
 }
 
-/*function working() {
-  if (timerRunning === false) {
-  document.getElementById("controller").innerHTML= "Reset";
-  timerRunning = true;
-  } else {
-    document.getElementById("controller").innerHTML= "Start";
-    timerRunning = false;
-  }
-}
-*/
+// subtract from break timer each interval...check when break timer reaches zero..then shut down break timer...allow reset of main session timer
 
 function minus1FromBreak() {
+  if (breakTimer = true) {
   breakTimer = breakTimer - 1;
   document.getElementById("break").innerHTML= breakTimer;
  document.getElementById("txt").innerHTML = breakTimer + " Minutes Left!";
@@ -176,11 +171,12 @@ function minus1FromBreak() {
 		  switchBreakTimerOff();
 		  clearTimer();
 		  breakTimerRunning = false;
-		  
 		  document.getElementById("reset").style.visibility = "visible"; 
 		  document.getElementById("notification").innerHTML = "Get Ready To Work!";
+      }
 	  }
   } 
+
 
 
 
